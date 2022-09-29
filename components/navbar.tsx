@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { createStyles, Navbar, Group, Code } from "@mantine/core";
+import { createStyles, Navbar, Group, Code, Anchor } from "@mantine/core";
 import {
   IconBellRinging,
-  IconFingerprint,
   IconKey,
   IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
-  IconSwitchHorizontal,
+  IconDashboard,
+  IconAddressBook,
+  IconCalendarTime,
+  IconMail,
   IconLogout
 } from "@tabler/icons";
 import { MantineLogo } from "@mantine/ds";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
@@ -96,35 +96,46 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-  { link: "", label: "Notifications", icon: IconBellRinging },
-  { link: "", label: "Billing", icon: IconReceipt2 },
-  { link: "", label: "Security", icon: IconFingerprint },
-  { link: "", label: "SSH Keys", icon: IconKey },
-  { link: "", label: "Databases", icon: IconDatabaseImport },
-  { link: "", label: "Authentication", icon: Icon2fa },
-  { link: "", label: "Other Settings", icon: IconSettings }
+  { link: "/", label: "Dashboard", icon: IconDashboard },
+  { link: "/schedule", label: "Schedule", icon: IconCalendarTime },
+  { link: "/inbox", label: "Inbox", icon: IconMail },
+  { link: "/contacts", label: "Contacts", icon: IconAddressBook },
+  { link: "/api_management", label: "API Keys", icon: IconKey },
+  { link: "/notifications", label: "Notifications", icon: IconBellRinging },
+  { link: "/settings", label: "Settings", icon: IconSettings }
 ];
 
 export function NavbarSimpleColored() {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState("Billing");
+  const [active, setActive] = useState("Dashboard");
 
   const links = data.map((item) => (
-    <a
-      className={cx(classes.link, {
-        [classes.linkActive]: item.label === active
-      })}
-      href={item.link}
-      key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
-    >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-      <span>{item.label}</span>
-    </a>
+    <div>
+      <a
+        className={cx(classes.link, {
+          [classes.linkActive]: item.label === active
+        })}
+        href={item.link}
+        key={item.label}
+        onClick={(event) => {
+          event.preventDefault();
+          setActive(item.label);
+        }}
+      >
+        <item.icon className={classes.linkIcon} stroke={1.5} />
+        <span>{item.label}</span>
+      </a>
+    </div>
   ));
+
+  // const links = data.map((item) => (
+  //   <div>
+  //     <Anchor component={Link} to={item.link} key={item.label} color="dark">
+  //       <item.icon className={classes.linkIcon} stroke={1.5} />
+  //       <span>{item.label}</span>
+  //     </Anchor>
+  //   </div>
+  // ));
 
   return (
     <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
@@ -137,15 +148,6 @@ export function NavbarSimpleColored() {
       </Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
-          <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-          <span>Change account</span>
-        </a>
-
         <a
           href="#"
           className={classes.link}

@@ -1,25 +1,15 @@
 import { useState } from "react";
-import {
-  AppShell,
-  Navbar,
-  Header,
-  Footer,
-  Aside,
-  Text,
-  MediaQuery,
-  Burger,
-  useMantineTheme
-} from "@mantine/core";
+import { useMantineTheme } from "@mantine/core";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import { NavbarSimpleColored } from "./navbar";
-import { TableReviews } from "./tableProgress";
-import { HeaderMegaMenu } from "./header";
+import { NavbarSimpleColored } from "../components/navbar";
 import { AuthenticationTitle } from "../pages/login";
 import { SignUpForm } from "../pages/signup";
 import ContactsPage from "../pages/contacts";
 import Dashboard from "../pages/dashboard";
+import Scheduler from "../pages/schedule";
+import SettingsPage from "../pages/settings";
 
 export default function AllRoutes() {
   const theme = useMantineTheme();
@@ -34,10 +24,10 @@ export default function AllRoutes() {
         <Route path="/logout" element={<AuthenticationTitle />} />
         <Route path="/notifications" element={<NavbarSimpleColored />} />
         <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/schedule" element={<AuthenticationTitle />} />
+        <Route path="/schedule" element={<Scheduler />} />
         <Route path="/inbox" element={<AuthenticationTitle />} />
         <Route path="/api_management" element={<AuthenticationTitle />} />
-        <Route path="/settings" element={<AuthenticationTitle />} />
+        <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </Router>
   );

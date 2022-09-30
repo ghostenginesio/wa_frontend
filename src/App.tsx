@@ -4,7 +4,7 @@ import {
   showNotification
 } from "@mantine/notifications";
 import { Group, Button } from "@mantine/core";
-import AllRoutes from "../components/routes";
+import AllRoutes from "./routes";
 
 export default function App() {
   return (

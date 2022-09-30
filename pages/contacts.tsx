@@ -1,26 +1,12 @@
 import { useState } from "react";
-import {
-  AppShell,
-  Navbar,
-  Header,
-  Footer,
-  Aside,
-  Text,
-  MediaQuery,
-  Burger,
-  useMantineTheme
-} from "@mantine/core";
+import { AppShell, useMantineTheme } from "@mantine/core";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { NavbarSimpleColored } from "../components/navbar";
-import { HeaderMegaMenu } from "../components/header";
-import { AuthenticationTitle } from "../pages/login";
-import { SignUpForm } from "../pages/signup";
+import { HeaderLoggedIn } from "../components/headerLoggedIn";
 import { TableReviews } from "../components/tableProgress";
 
 export default function ContactsPage() {
   const theme = useMantineTheme();
-  const [opened, setOpened] = useState(false);
   const dataTable = require("../components/tableProgress.json")["data"];
   return (
     <AppShell
@@ -35,7 +21,7 @@ export default function ContactsPage() {
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
       navbar={<NavbarSimpleColored />}
-      header={<HeaderMegaMenu />}
+      header={<HeaderLoggedIn />}
     >
       <TableReviews data={dataTable} />
     </AppShell>

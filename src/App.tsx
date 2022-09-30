@@ -4,26 +4,13 @@ import {
   showNotification
 } from "@mantine/notifications";
 import { Group, Button } from "@mantine/core";
-import AppShellDemo from "../components/appShell";
+import AllRoutes from "../components/routes";
 
 export default function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <NotificationsProvider>
-        <AppShellDemo />
-        <Group position="center">
-          <Button
-            variant="outline"
-            onClick={() =>
-              showNotification({
-                title: "Default notification",
-                message: "Hey there, your code is awesome! 🤥"
-              })
-            }
-          >
-            Show notification
-          </Button>
-        </Group>
+        <AllRoutes />
       </NotificationsProvider>
     </MantineProvider>
   );

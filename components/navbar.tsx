@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createStyles, Navbar, Group, Code, Anchor } from "@mantine/core";
+import { createStyles, Navbar, Group, Code, Text } from "@mantine/core";
 import {
   IconBellRinging,
   IconKey,
@@ -96,7 +96,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-  { link: "/", label: "Dashboard", icon: IconDashboard },
+  { link: "/dashboard", label: "Dashboard", icon: IconDashboard },
   { link: "/schedule", label: "Schedule", icon: IconCalendarTime },
   { link: "/inbox", label: "Inbox", icon: IconMail },
   { link: "/contacts", label: "Contacts", icon: IconAddressBook },
@@ -110,40 +110,31 @@ export function NavbarSimpleColored() {
   const [active, setActive] = useState("Dashboard");
 
   const links = data.map((item) => (
-    <div>
-      <a
+    <div
+      onClick={(event) => {
+        event.preventDefault();
+        setActive(item.label);
+      }}
+    >
+      <Text
+        component={Link}
+        to={item.link}
         className={cx(classes.link, {
           [classes.linkActive]: item.label === active
         })}
-        href={item.link}
-        key={item.label}
-        onClick={(event) => {
-          event.preventDefault();
-          setActive(item.label);
-        }}
       >
-        <item.icon className={classes.linkIcon} stroke={1.5} />
-        <span>{item.label}</span>
-      </a>
+        {item.label}
+      </Text>
     </div>
   ));
-
-  // const links = data.map((item) => (
-  //   <div>
-  //     <Anchor component={Link} to={item.link} key={item.label} color="dark">
-  //       <item.icon className={classes.linkIcon} stroke={1.5} />
-  //       <span>{item.label}</span>
-  //     </Anchor>
-  //   </div>
-  // ));
 
   return (
     <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
       <Navbar.Section grow>
-        <Group className={classes.header} position="apart">
+        {/* <Group className={classes.header} position="apart">
           <MantineLogo size={28} inverted />
           <Code className={classes.version}>v3.1.2</Code>
-        </Group>
+        </Group> */}
         {links}
       </Navbar.Section>
 

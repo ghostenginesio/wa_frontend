@@ -1,7 +1,7 @@
 import { Group, Button } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 
-function Demo() {
+function Notification() {
   return (
     <Group position="center">
       <Button

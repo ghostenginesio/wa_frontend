@@ -1,11 +1,21 @@
 import { useState } from "react";
-import { AppShell, useMantineTheme } from "@mantine/core";
+import {
+  AppShell,
+  Container,
+  Group,
+  Stack,
+  useMantineTheme
+} from "@mantine/core";
 
 import { NavbarSimpleColored } from "../components/navbar";
 import { StatsGrid } from "../components/statsGrid";
 import { ProgressCardColored } from "../components/usageStats";
 import { HeaderLoggedIn } from "../components/headerLoggedIn";
 import TextEditor from "../components/textEditor";
+import CardSimple from "../components/card";
+import { Subgrid } from "../components/grid";
+import { ContainedInputs } from "../components/scheduleForm";
+import SimpleModal from "../components/modal";
 
 export default function Scheduler() {
   const theme = useMantineTheme();
@@ -25,7 +35,8 @@ export default function Scheduler() {
       navbar={<NavbarSimpleColored />}
       header={<HeaderLoggedIn />}
     >
-      <TextEditor />
+      <CardSimple />
+      <SimpleModal content={<ContainedInputs />} />
     </AppShell>
   );
 }

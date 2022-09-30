@@ -5,11 +5,11 @@ import {
   Button,
   Box,
   Burger,
-  Drawer,
-  ScrollArea
+  Drawer
 } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
+import { Avatar } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -92,12 +92,9 @@ export function HeaderLoggedIn() {
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
           <MantineLogo size={30} />
-
-          <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
-
+          <Avatar color="cyan" radius="xl">
+            MK
+          </Avatar>
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}
@@ -115,12 +112,9 @@ export function HeaderLoggedIn() {
         className={classes.hiddenDesktop}
         zIndex={1000000}
       >
-        <ScrollArea sx={{ height: "calc(100vh - 60px)" }} mx="-md">
-          <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
-        </ScrollArea>
+        <Avatar color="cyan" radius="xl">
+          MK
+        </Avatar>
       </Drawer>
     </Box>
   );

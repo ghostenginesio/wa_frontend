@@ -1,12 +1,5 @@
-import {
-  createStyles,
-  Card,
-  Group,
-  Text,
-  TextInput,
-  Grid
-} from "@mantine/core";
-import { ButtonCopy } from "./copyToClipboard";
+import { createStyles, Card, Text, TextInput, Grid } from "@mantine/core";
+import { ButtonCopy } from "../general/copyToClipboard";
 
 const useStyles = createStyles((theme) => ({
   card: {

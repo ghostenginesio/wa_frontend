@@ -1,14 +1,4 @@
-import {
-  createStyles,
-  Textarea,
-  Button,
-  Group,
-  Center,
-  TextInput
-} from "@mantine/core";
-import { DatePicker, TimeInput } from "@mantine/dates";
-import { DropzoneButton } from "./dropzone";
-import { IconClock } from "@tabler/icons";
+import { createStyles, Button, Center, TextInput } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -32,7 +22,6 @@ const useStyles = createStyles((theme) => ({
 
 export function ContainedInputs() {
   // You can add these classes as classNames to any Mantine input, it will work the same
-  const { classes } = useStyles();
 
   return (
     <div>

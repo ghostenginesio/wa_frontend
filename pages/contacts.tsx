@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { AppShell, useMantineTheme } from "@mantine/core";
+import { NavbarSimpleColored } from "../components/general/navbar";
+import { HeaderLoggedIn } from "../components/general/headerLoggedIn";
+import { TableReviews } from "../components/contacts/tableProgress";
 
-import { NavbarSimpleColored } from "../components/navbar";
-import { HeaderLoggedIn } from "../components/headerLoggedIn";
-import { TableReviews } from "../components/tableProgress";
-
-const dataTable = require("../components/tableProgress.json")["data"];
+const dataTable = require("../components/contacts/tableProgress.json")["data"];
 
 export default function ContactsPage() {
   const theme = useMantineTheme();

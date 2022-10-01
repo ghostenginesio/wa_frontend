@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { AppShell, useMantineTheme } from "@mantine/core";
-
-import { NavbarSimpleColored } from "../components/navbar";
-import { HeaderLoggedIn } from "../components/headerLoggedIn";
-import { SwitchesCard } from "../components/switchCardApi";
+import { NavbarSimpleColored } from "../components/general/navbar";
+import { HeaderLoggedIn } from "../components/general/headerLoggedIn";
+import { SwitchesCard } from "../components/apiPage/switchCardApi";
 
 export default function ApiPage() {
   const theme = useMantineTheme();

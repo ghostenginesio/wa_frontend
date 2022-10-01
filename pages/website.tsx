@@ -1,4 +1,4 @@
-import { Container, createStyles, Space } from "@mantine/core";
+import { Container, Space } from "@mantine/core";
 import { HeroText } from "../components/website/websiteHero";
 import { FeaturesCards } from "../components/website/websiteFeatures";
 import { FaqSimple } from "../components/website/websiteFaqs";

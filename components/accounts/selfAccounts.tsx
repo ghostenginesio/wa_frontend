@@ -1,6 +1,6 @@
 import { Card, Text, Badge, Group } from "@mantine/core";
-import SimpleModal from "./modal";
-import StepperSimple from "./stepper";
+import SimpleModal from "../general/modal";
+import { ContainedView } from "./view";
 
 const data = {
   text:
@@ -26,7 +26,7 @@ function SelfAccount() {
         {data.text}
       </Text>
 
-      <SimpleModal content={<StepperSimple />} />
+      <SimpleModal content={<ContainedView />} />
     </Card>
   );
 }

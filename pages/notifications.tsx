@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AppShell, Paper, Stack, useMantineTheme } from "@mantine/core";
-import { NavbarSimpleColored } from "../components/navbar";
-import { HeaderLoggedIn } from "../components/headerLoggedIn";
+import { NavbarSimpleColored } from "../components/general/navbar";
+import { HeaderLoggedIn } from "../components/general/headerLoggedIn";
 import NotificationsCard from "../components/notifications/notificationsButton";
 
 const dataTable = require("../components/notifications/notifications.json")[

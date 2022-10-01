@@ -1,7 +1,6 @@
-import { Card, Image, Text, Badge, Group } from "@mantine/core";
-import { ContainedInputs } from "./addAccountInput";
+import { Card, Text, Group } from "@mantine/core";
 import StepperSimple from "./stepper";
-import SimpleModal from "./modal";
+import SimpleModal from "../general/modal";
 
 const data = {
   text: "Add a new account",

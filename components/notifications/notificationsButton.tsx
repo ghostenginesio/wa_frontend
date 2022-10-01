@@ -16,7 +16,10 @@ export default function NotificationsCard({ data }: NotificationProps) {
         <Text size="sm" color="dimmed" py="sm">
           {item.text}
         </Text>
-        <Badge color="green" variant="light">
+        <Badge
+          color={item.status === "Completed" ? "green" : "red"}
+          variant="light"
+        >
           {item.status}
         </Badge>
       </Group>

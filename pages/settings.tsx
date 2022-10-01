@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { AppShell, useMantineTheme } from "@mantine/core";
-
-import { NavbarSimpleColored } from "../components/navbar";
-import { HeaderLoggedIn } from "../components/headerLoggedIn";
-import { SwitchesCard } from "../components/settings";
+import { NavbarSimpleColored } from "../components/general/navbar";
+import { HeaderLoggedIn } from "../components/general/headerLoggedIn";
+import { SwitchesCard } from "../components/settings/settings";
+import { SettingsCard } from "../components/settings/card";
 
 export default function SettingsPage() {
   const theme = useMantineTheme();
+  const item = {
+    title: "Invitation link",
+    description: "https://mydomain.com/invitations/wjnfn3j4fn"
+  };
   const dataTable = require("../pages/settings.json")["data"];
   return (
     <AppShell
@@ -23,11 +27,8 @@ export default function SettingsPage() {
       navbar={<NavbarSimpleColored current="Settings" />}
       header={<HeaderLoggedIn />}
     >
-      <SwitchesCard
-        title="Settings"
-        description="Main settings"
-        data={dataTable}
-      />
+      <SwitchesCard title="Settings" description="" data={dataTable} />
+      <SettingsCard title={item.title} description={item.description} />
     </AppShell>
   );
 }

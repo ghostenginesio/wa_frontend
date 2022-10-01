@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthenticationTitle } from "../pages/login";
 import { SignUpForm } from "../pages/signup";
 import ContactsPage from "../pages/contacts";
@@ -12,11 +11,12 @@ import { ForgotPassword } from "../pages/resetPassword";
 import Website from "../pages/website";
 import { NothingFoundBackground } from "../pages/notFound";
 import { AuthProvider } from "../components/general/auth";
+import Pricing from "../pages/pricing";
 
 export default function AllRoutes() {
   return (
     <AuthProvider>
-      <Router>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Website />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -29,9 +29,10 @@ export default function AllRoutes() {
           <Route path="/schedule" element={<Scheduler />} />
           <Route path="/api_management" element={<ApiPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NothingFoundBackground />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </AuthProvider>
   );
 }

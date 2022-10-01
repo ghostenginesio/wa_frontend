@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AppShell, Grid, useMantineTheme } from "@mantine/core";
+import { AppShell, Center, Grid, useMantineTheme } from "@mantine/core";
 import { NavbarSimpleColored } from "../components/general/navbar";
 import { StatsGrid } from "../components/dashboard/statsGrid";
 import { HeaderLoggedIn } from "../components/general/headerLoggedIn";
@@ -33,12 +33,14 @@ export default function Dashboard() {
       header={<HeaderLoggedIn />}
     >
       <StatsGrid data={dataTable} />
-      <Grid grow>
-        {items}
-        <Grid.Col span={4} style={{ maxWidth: 250 }}>
-          <AddSelfAccount />
-        </Grid.Col>
-      </Grid>
+      <Center>
+        <Grid grow>
+          {items}
+          <Grid.Col span={4} style={{ maxWidth: 250 }}>
+            <AddSelfAccount />
+          </Grid.Col>
+        </Grid>
+      </Center>
     </AppShell>
   );
 }

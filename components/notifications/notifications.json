@@ -2,15 +2,18 @@
   "data": [
     {
       "title": "Revenue",
-      "text": "New notification"
+      "text": "New notification",
+      "status": "Completed"
     },
     {
       "title": "Revenue 1",
-      "text": "New notification"
+      "text": "New notification",
+      "status": "Completed"
     },
     {
       "title": "Revenue 2",
-      "text": "New notification"
+      "text": "New notification",
+      "status": "Completed"
     }
   ]
 }

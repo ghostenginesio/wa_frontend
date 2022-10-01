@@ -4,25 +4,29 @@
       "title": "Revenue",
       "icon": "receipt",
       "value": "13,456",
-      "diff": 34
+      "diff": 34,
+      "scale": "Compared to previous month"
     },
     {
       "title": "Profit",
       "icon": "coin",
       "value": "4,145",
-      "diff": -13
+      "diff": -13,
+      "scale": "Compared to previous month"
     },
     {
       "title": "Coupons usage",
       "icon": "discount",
       "value": "745",
-      "diff": 18
+      "diff": 18,
+      "scale": "Compared to previous month"
     },
     {
       "title": "New customers",
       "icon": "user",
       "value": "188",
-      "diff": -30
+      "diff": -30,
+      "scale": "Compared to previous month"
     }
   ]
 }

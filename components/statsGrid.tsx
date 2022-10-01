@@ -49,6 +49,7 @@ interface StatsGridProps {
     icon: keyof typeof icons;
     value: string;
     diff: number;
+    scale: string;
   }[];
 }
 
@@ -81,7 +82,7 @@ export function StatsGrid({ data }: StatsGridProps) {
         </Group>
 
         <Text size="xs" color="dimmed" mt={7}>
-          Compared to previous month
+          {stat.scale}
         </Text>
       </Paper>
     );

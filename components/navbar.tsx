@@ -10,6 +10,7 @@ import {
   IconLogout
 } from "@tabler/icons";
 import { Link } from "react-router-dom";
+import { ProgressCardColored } from "./usageStats";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
@@ -102,11 +103,18 @@ const data = [
   { link: "/settings", label: "Settings", icon: IconSettings }
 ];
 
-// const current = "Dashboard";
+interface NavigationProps {
+  current: string;
+}
 
-export function NavbarSimpleColored({ current }) {
+export function NavbarSimpleColored({ current }: NavigationProps) {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState(current);
+  const usage = {
+    allocated: 500,
+    used: 130,
+    percentage: 26
+  };
 
   const links = data.map((item) => (
     <div
@@ -129,20 +137,12 @@ export function NavbarSimpleColored({ current }) {
 
   return (
     <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
-      <Navbar.Section grow>
-        {/* <Group className={classes.header} position="apart">
-          <MantineLogo size={28} inverted />
-          <Code className={classes.version}>v3.1.2</Code>
-        </Group> */}
-        {links}
+      <Navbar.Section grow>{links}</Navbar.Section>
+      <Navbar.Section>
+        <ProgressCardColored usage={usage} />
       </Navbar.Section>
-
       <Navbar.Section className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
+        <a href="/logout" className={classes.link}>
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>

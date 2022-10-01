@@ -22,7 +22,15 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-export function ProgressCardColored() {
+interface ProgressProps {
+  usage: {
+    allocated: number;
+    used: number;
+    percentage: number;
+  };
+}
+
+export function ProgressCardColored({ usage }: ProgressProps) {
   const { classes } = useStyles();
   return (
     <Card withBorder radius="md" p="xl" className={classes.card}>
@@ -32,13 +40,13 @@ export function ProgressCardColored() {
         weight={700}
         className={classes.title}
       >
-        Monthly goal
+        Usage
       </Text>
       <Text size="lg" weight={500} className={classes.stats}>
-        $5.431 / $10.000
+        {usage.used} / {usage.allocated}
       </Text>
       <Progress
-        value={54.31}
+        value={usage.percentage}
         mt="md"
         size="lg"
         radius="xl"

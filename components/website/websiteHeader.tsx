@@ -14,8 +14,7 @@ import {
   Box,
   Burger,
   Drawer,
-  Collapse,
-  ScrollArea
+  Collapse
 } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
@@ -168,9 +167,11 @@ export function HeaderMegaMenu() {
             spacing={0}
             className={classes.hiddenMobile}
           >
-            <a href="#" className={classes.link}>
-              Home
-            </a>
+            <UnstyledButton className={classes.link}>
+              <Text component="a" href="/#" className={classes.link}>
+                Home
+              </Text>
+            </UnstyledButton>
             <HoverCard
               width={600}
               position="bottom"
@@ -179,17 +180,17 @@ export function HeaderMegaMenu() {
               withinPortal
             >
               <HoverCard.Target>
-                <a href="#" className={classes.link}>
-                  <Center inline>
-                    <Box component="span" mr={5}>
-                      Features
-                    </Box>
-                    <IconChevronDown
-                      size={16}
-                      color={theme.fn.primaryColor()}
-                    />
-                  </Center>
-                </a>
+                <Center
+                  component="a"
+                  href="/features"
+                  className={classes.link}
+                  inline
+                >
+                  <Box component="span" mr={5}>
+                    Features
+                  </Box>
+                  <IconChevronDown size={16} color={theme.fn.primaryColor()} />
+                </Center>
               </HoverCard.Target>
 
               <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
@@ -220,22 +221,32 @@ export function HeaderMegaMenu() {
                         Their food sources have decreased, and their numbers
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button component="a" href="/login" variant="default">
+                      Get started
+                    </Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
-            </a>
+            <UnstyledButton className={classes.link}>
+              <Text component="a" href="/pricing" className={classes.link}>
+                Pricing
+              </Text>
+            </UnstyledButton>
+            <UnstyledButton className={classes.link}>
+              <Text component="a" href="/blog" className={classes.link}>
+                Blog
+              </Text>
+            </UnstyledButton>
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button component="a" href="/login" variant="default">
+              Log in
+            </Button>
+            <Button component="a" href="/signup">
+              Sign up
+            </Button>
           </Group>
 
           <Burger
@@ -255,41 +266,49 @@ export function HeaderMegaMenu() {
         className={classes.hiddenDesktop}
         zIndex={1000000}
       >
-        <ScrollArea sx={{ height: "calc(100vh - 60px)" }} mx="-md">
-          <Divider
-            my="sm"
-            color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
-          />
+        <Divider
+          my="sm"
+          color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+        />
 
-          <a href="#" className={classes.link}>
+        <UnstyledButton className={classes.link}>
+          <Text component="a" href="#" className={classes.link}>
             Home
-          </a>
-          <UnstyledButton className={classes.link} onClick={toggleLinks}>
-            <Center inline>
-              <Box component="span" mr={5}>
-                Features
-              </Box>
-              <IconChevronDown size={16} color={theme.fn.primaryColor()} />
-            </Center>
-          </UnstyledButton>
-          <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
-          </a>
+          </Text>
+        </UnstyledButton>
+        <UnstyledButton className={classes.link} onClick={toggleLinks}>
+          <Center inline>
+            <Box component="span" mr={5}>
+              Features
+            </Box>
+            <IconChevronDown size={16} color={theme.fn.primaryColor()} />
+          </Center>
+        </UnstyledButton>
+        <Collapse in={linksOpened}>{links}</Collapse>
+        <UnstyledButton className={classes.link}>
+          <Text component="a" href="/pricing" className={classes.link}>
+            Pricing
+          </Text>
+        </UnstyledButton>
+        <UnstyledButton className={classes.link}>
+          <Text component="a" href="/blog" className={classes.link}>
+            Blog
+          </Text>
+        </UnstyledButton>
 
-          <Divider
-            my="sm"
-            color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
-          />
+        <Divider
+          my="sm"
+          color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+        />
 
-          <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
-        </ScrollArea>
+        <Group position="center" grow pb="xl" px="md">
+          <Button component="a" href="/login" variant="default">
+            Log in
+          </Button>
+          <Button component="a" href="/signup">
+            Sign up
+          </Button>
+        </Group>
       </Drawer>
     </Box>
   );

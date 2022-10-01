@@ -23,18 +23,6 @@
       "icon": "user",
       "value": "188",
       "diff": -30
-    },
-    {
-      "title": "Coupons usage",
-      "icon": "discount",
-      "value": "745",
-      "diff": 18
-    },
-    {
-      "title": "New customers",
-      "icon": "user",
-      "value": "188",
-      "diff": -30
     }
   ]
 }

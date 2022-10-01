@@ -6,7 +6,8 @@ import {
   Button,
   Image
 } from "@mantine/core";
-import image from "./image.svg";
+
+const image = "https://ui.mantine.dev/_next/static/media/image.969ed1dc.svg";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -94,7 +95,7 @@ export function EmailBanner() {
           <Button className={classes.control}>Subscribe</Button>
         </div>
       </div>
-      <Image src={image.src} className={classes.image} />
+      <Image src={image} className={classes.image} />
     </div>
   );
 }

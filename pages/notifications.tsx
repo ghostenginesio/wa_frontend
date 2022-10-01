@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { AppShell, useMantineTheme } from "@mantine/core";
-
+import { AppShell, Paper, Stack, useMantineTheme } from "@mantine/core";
 import { NavbarSimpleColored } from "../components/navbar";
 import { HeaderLoggedIn } from "../components/headerLoggedIn";
-import TextPage from "../components/textArea";
+import NotificationsCard from "../components/notifications/notificationsButton";
 
-const dataTable = require("../components/statsGrid.json")["data"];
+const dataTable = require("../components/notifications/notifications.json")[
+  "data"
+];
 
 export default function NotificationPage() {
   const theme = useMantineTheme();
@@ -24,7 +25,11 @@ export default function NotificationPage() {
       navbar={<NavbarSimpleColored current="Notifications" />}
       header={<HeaderLoggedIn />}
     >
-      <TextPage />
+      <Paper shadow="xs" p="md">
+        <Stack>
+          <NotificationsCard data={dataTable} />
+        </Stack>
+      </Paper>
     </AppShell>
   );
 }

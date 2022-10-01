@@ -6,7 +6,6 @@ import {
   Button,
   Group
 } from "@mantine/core";
-import { Illustration } from "./Illustration";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -62,7 +61,6 @@ export function NothingFoundBackground() {
   return (
     <Container className={classes.root}>
       <div className={classes.inner}>
-        <Illustration className={classes.image} />
         <div className={classes.content}>
           <Title className={classes.title}>Nothing to see here</Title>
           <Text
@@ -76,7 +74,9 @@ export function NothingFoundBackground() {
             this is an error contact support.
           </Text>
           <Group position="center">
-            <Button size="md">Take me back to home page</Button>
+            <Button component="a" href="/" size="md">
+              Take me back to home page
+            </Button>
           </Group>
         </div>
       </div>

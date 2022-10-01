@@ -1,4 +1,11 @@
-import { createStyles, Card, Group, Text, TextInput } from "@mantine/core";
+import {
+  createStyles,
+  Card,
+  Group,
+  Text,
+  TextInput,
+  Grid
+} from "@mantine/core";
 import { ButtonCopy } from "./copyToClipboard";
 
 const useStyles = createStyles((theme) => ({
@@ -43,11 +50,17 @@ export function SwitchesCard({ title, description, data }: SwitchesCardProps) {
   const { classes } = useStyles();
 
   const items = data.map((item) => (
-    <Group position="left" className={classes.item} noWrap spacing="xl">
-      <Text>{item.title}</Text>
-      <TextInput disabled value={item.data} />
-      <ButtonCopy copyData={item.data} />
-    </Group>
+    <Grid position="left" className={classes.item} noWrap spacing="xl">
+      <Grid.Col span={4} style={{ maxWidth: 380 }}>
+        <Text>{item.title}</Text>
+      </Grid.Col>
+      <Grid.Col span={4} style={{ maxWidth: 380 }}>
+        <TextInput disabled value={item.data} />
+      </Grid.Col>
+      <Grid.Col span={4} style={{ maxWidth: 380 }}>
+        <ButtonCopy copyData={item.data} />
+      </Grid.Col>
+    </Grid>
   ));
 
   return (

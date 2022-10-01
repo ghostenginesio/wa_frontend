@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createStyles, Navbar, Group, Code, Text } from "@mantine/core";
+import { createStyles, Navbar, Text } from "@mantine/core";
 import {
   IconBellRinging,
   IconKey,
@@ -7,10 +7,8 @@ import {
   IconDashboard,
   IconAddressBook,
   IconCalendarTime,
-  IconMail,
   IconLogout
 } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -98,16 +96,17 @@ const useStyles = createStyles((theme, _params, getRef) => {
 const data = [
   { link: "/dashboard", label: "Dashboard", icon: IconDashboard },
   { link: "/schedule", label: "Schedule", icon: IconCalendarTime },
-  { link: "/inbox", label: "Inbox", icon: IconMail },
   { link: "/contacts", label: "Contacts", icon: IconAddressBook },
   { link: "/api_management", label: "API Keys", icon: IconKey },
   { link: "/notifications", label: "Notifications", icon: IconBellRinging },
   { link: "/settings", label: "Settings", icon: IconSettings }
 ];
 
-export function NavbarSimpleColored() {
+// const current = "Dashboard";
+
+export function NavbarSimpleColored({ current }) {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState("Dashboard");
+  const [active, setActive] = useState(current);
 
   const links = data.map((item) => (
     <div

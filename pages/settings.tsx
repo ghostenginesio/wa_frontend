@@ -20,7 +20,7 @@ export default function SettingsPage() {
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
-      navbar={<NavbarSimpleColored />}
+      navbar={<NavbarSimpleColored current="Settings" />}
       header={<HeaderLoggedIn />}
     >
       <SwitchesCard

@@ -1,9 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import {
-  NotificationsProvider,
-  showNotification
-} from "@mantine/notifications";
-import { Group, Button } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import AllRoutes from "./routes";
 
 export default function App() {

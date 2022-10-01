@@ -5,9 +5,10 @@ import { NavbarSimpleColored } from "../components/navbar";
 import { HeaderLoggedIn } from "../components/headerLoggedIn";
 import { TableReviews } from "../components/tableProgress";
 
+const dataTable = require("../components/tableProgress.json")["data"];
+
 export default function ContactsPage() {
   const theme = useMantineTheme();
-  const dataTable = require("../components/tableProgress.json")["data"];
   return (
     <AppShell
       styles={{
@@ -20,7 +21,7 @@ export default function ContactsPage() {
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
-      navbar={<NavbarSimpleColored />}
+      navbar={<NavbarSimpleColored current="Contacts" />}
       header={<HeaderLoggedIn />}
     >
       <TableReviews data={dataTable} />

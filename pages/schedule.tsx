@@ -2,24 +2,26 @@ import { useState } from "react";
 import {
   AppShell,
   Container,
+  Grid,
   Group,
   Stack,
   useMantineTheme
 } from "@mantine/core";
 
 import { NavbarSimpleColored } from "../components/navbar";
-import { StatsGrid } from "../components/statsGrid";
-import { ProgressCardColored } from "../components/usageStats";
 import { HeaderLoggedIn } from "../components/headerLoggedIn";
-import TextEditor from "../components/textEditor";
 import CardSimple from "../components/card";
-import { Subgrid } from "../components/grid";
-import { ContainedInputs } from "../components/scheduleForm";
-import SimpleModal from "../components/modal";
+
+const data = [1, 2, 3, 4, 5, 6, 7];
+
+const items = data.map((item) => (
+  <Grid.Col span={4} style={{ maxWidth: 380 }}>
+    <CardSimple />
+  </Grid.Col>
+));
 
 export default function Scheduler() {
   const theme = useMantineTheme();
-  const dataTable = require("../components/statsGrid.json")["data"];
   return (
     <AppShell
       styles={{
@@ -32,11 +34,12 @@ export default function Scheduler() {
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
-      navbar={<NavbarSimpleColored />}
+      navbar={<NavbarSimpleColored current="Schedule" />}
       header={<HeaderLoggedIn />}
     >
-      <CardSimple />
-      <SimpleModal content={<ContainedInputs />} />
+      <Stack>
+        <Grid grow>{items}</Grid>
+      </Stack>
     </AppShell>
   );
 }

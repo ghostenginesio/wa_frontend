@@ -1,10 +1,18 @@
 import { useState } from "react";
-import { AppShell, useMantineTheme } from "@mantine/core";
-
+import { AppShell, Grid, useMantineTheme } from "@mantine/core";
 import { NavbarSimpleColored } from "../components/navbar";
 import { StatsGrid } from "../components/statsGrid";
-import { ProgressCardColored } from "../components/usageStats";
 import { HeaderLoggedIn } from "../components/headerLoggedIn";
+import SelfAccount from "../components/selfAccounts";
+import AddSelfAccount from "../components/addSelfAccount";
+
+const data = [1, 2];
+
+const items = data.map((item) => (
+  <Grid.Col span={4} style={{ maxWidth: 380 }}>
+    <SelfAccount />
+  </Grid.Col>
+));
 
 export default function Dashboard() {
   const theme = useMantineTheme();
@@ -21,14 +29,16 @@ export default function Dashboard() {
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
-      navbar={<NavbarSimpleColored />}
+      navbar={<NavbarSimpleColored current="Dashboard" />}
       header={<HeaderLoggedIn />}
     >
-      <ProgressCardColored />
       <StatsGrid data={dataTable} />
-      <StatsGrid data={dataTable} />
-      <StatsGrid data={dataTable} />
-      <StatsGrid data={dataTable} />
+      <Grid grow>
+        {items}
+        <Grid.Col span={4} style={{ maxWidth: 380 }}>
+          <AddSelfAccount />
+        </Grid.Col>
+      </Grid>
     </AppShell>
   );
 }

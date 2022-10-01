@@ -1,5 +1,7 @@
-import { createStyles, Select, Textarea } from "@mantine/core";
-import { DatePicker } from "@mantine/dates";
+import { createStyles, Textarea, Button, Group, Center } from "@mantine/core";
+import { DatePicker, TimeInput } from "@mantine/dates";
+import { DropzoneButton } from "./dropzone";
+import { IconClock } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -35,21 +37,28 @@ export function ContainedInputs() {
         maxRows={4}
       />
 
-      <Select
-        style={{ marginTop: 20, zIndex: 2 }}
-        data={["React", "Angular", "Svelte", "Vue"]}
-        placeholder="Pick one"
-        label="Your favorite library/framework"
-        classNames={classes}
-      />
+      <DropzoneButton />
 
-      <DatePicker
-        style={{ marginTop: 20 }}
-        label="Departure date"
-        placeholder="When will you leave?"
-        classNames={classes}
-        clearable={false}
-      />
+      <Group>
+        <DatePicker
+          style={{ marginTop: 20 }}
+          label="Departure date"
+          placeholder="When will you leave?"
+          classNames={classes}
+          clearable={false}
+        />
+
+        <TimeInput
+          label="Pick time"
+          placeholder="Pick time"
+          icon={<IconClock size={16} />}
+          defaultValue={new Date()}
+        />
+      </Group>
+
+      <Center>
+        <Button>Schedule</Button>
+      </Center>
     </div>
   );
 }

@@ -1,0 +1,14 @@
+{
+  "title": "API Credentials",
+  "description": "Check your API credentials here. For security reasons only Clipboard copy is allowed.",
+  "data": [
+    {
+      "title": "Client ID",
+      "data": "NuqSCFND9oghliDFrJLCmhgGFrOPLdfPXUvPi78DYO7rkbkhPlPSSU4Dv96wH9wR"
+    },
+    {
+      "title": "Client Secret",
+      "data": "qImdX1vtkRzcYx0ncDHdoJ03mEuZH9bO5i3dQL4svyXxWKwnhG0Nwe6Cp1ZoMPuz"
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 import { createStyles, Title, Text, Button, Container } from "@mantine/core";
-import { Dots } from "./Dots";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -96,11 +95,6 @@ export function HeroText() {
 
   return (
     <Container className={classes.wrapper} size={1400}>
-      <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
-      <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
-      <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
-      <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
-
       <div className={classes.inner}>
         <Title className={classes.title}>
           Automated AI{" "}

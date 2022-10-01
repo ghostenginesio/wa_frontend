@@ -2,14 +2,14 @@ import { Button, Tooltip } from "@mantine/core";
 import { useClipboard } from "@mantine/hooks";
 import { IconCopy, IconCheck } from "@tabler/icons";
 
-export function ButtonCopy() {
+export function ButtonCopy({ copyData }) {
   const clipboard = useClipboard();
   return (
     <Tooltip
-      label="Link copied!"
+      label="Copied!"
       offset={5}
       position="bottom"
-      radius="xl"
+      radius="md"
       transition="slide-down"
       transitionDuration={100}
       opened={clipboard.copied}
@@ -24,16 +24,14 @@ export function ButtonCopy() {
           )
         }
         radius="xl"
-        size="md"
+        size="sm"
         styles={{
           root: { paddingRight: 14, height: 48 },
           rightIcon: { marginLeft: 22 }
         }}
-        onClick={() =>
-          clipboard.copy("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-        }
+        onClick={() => clipboard.copy(copyData)}
       >
-        Copy link to clipboard
+        Copy
       </Button>
     </Tooltip>
   );

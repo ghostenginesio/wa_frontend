@@ -3,12 +3,11 @@ import { AppShell, useMantineTheme } from "@mantine/core";
 
 import { NavbarSimpleColored } from "../components/navbar";
 import { HeaderLoggedIn } from "../components/headerLoggedIn";
-import TextPage from "../components/textArea";
+import { SwitchesCard } from "../components/switchCardApi";
 
-const dataTable = require("../components/statsGrid.json")["data"];
-
-export default function NotificationPage() {
+export default function ApiPage() {
   const theme = useMantineTheme();
+  const dataTable = require("../pages/apiPage.json");
   return (
     <AppShell
       styles={{
@@ -21,10 +20,14 @@ export default function NotificationPage() {
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
-      navbar={<NavbarSimpleColored current="Notifications" />}
+      navbar={<NavbarSimpleColored current="API Keys" />}
       header={<HeaderLoggedIn />}
     >
-      <TextPage />
+      <SwitchesCard
+        title={dataTable.title}
+        description={dataTable.description}
+        data={dataTable.data}
+      />
     </AppShell>
   );
 }

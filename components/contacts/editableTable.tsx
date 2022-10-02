@@ -8,12 +8,12 @@ import {
   Text,
   Center,
   TextInput,
-  Pagination
 } from '@mantine/core';
 import { keys } from '@mantine/utils';
 import { IconSelector, IconChevronDown, IconChevronUp, IconSearch } from '@tabler/icons';
 import SimpleModal from "./modal";
 import ParseCSV from "./readCSV";
+import Scheduler from "./scheduler";
 
 const useStyles = createStyles((theme) => ({
   th: {
@@ -132,7 +132,7 @@ export default function ContactsTable({ data }: TableSortProps) {
         <Group>
           <SimpleModal name="Edit" color="blue"></SimpleModal>
           <SimpleModal name="Delete" color="red"></SimpleModal>
-          <SimpleModal name="Action" color="green"></SimpleModal>
+          <SimpleModal name="Action" color="green" content={<Scheduler/>}></SimpleModal>
         </Group>
       </td>
     </tr>
@@ -143,7 +143,7 @@ export default function ContactsTable({ data }: TableSortProps) {
       <Group>
         <SimpleModal name="Upload" color="violet" content={<ParseCSV/>}></SimpleModal>
         <SimpleModal name="Delete" color="red"></SimpleModal>
-        <SimpleModal name="Action" color="green"></SimpleModal>
+        <SimpleModal name="Action" color="green" content={<Scheduler/>}></SimpleModal>
       </Group>
       <TextInput
         py= "md"
@@ -197,8 +197,6 @@ export default function ContactsTable({ data }: TableSortProps) {
           )}
         </tbody>
       </Table>
-      {/* pagination */}
-    <Pagination position="center" py="md" page={activePage} onChange={setPage}  total={10} />  
     </ScrollArea>
   );
 }

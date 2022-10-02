@@ -98,7 +98,7 @@ function sortData(
   );
 }
 
-export function TableSort({ data }: TableSortProps) {
+export function ContactsPage({ data }: TableSortProps) {
   const [search, setSearch] = useState('');
   const [sortedData, setSortedData] = useState(data);
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null);

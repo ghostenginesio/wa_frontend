@@ -8,7 +8,7 @@ import {
   Text,
   Center,
   TextInput,
-  Button
+  Pagination
 } from '@mantine/core';
 import { keys } from '@mantine/utils';
 import { IconSelector, IconChevronDown, IconChevronUp, IconSearch } from '@tabler/icons';
@@ -102,11 +102,13 @@ function sortData(
   );
 }
 
+
 export default function ContactsTable({ data }: TableSortProps) {
   const [search, setSearch] = useState('');
   const [sortedData, setSortedData] = useState(data);
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
   const [reverseSortDirection, setReverseSortDirection] = useState(false);
+  const [activePage, setPage] = useState(1);
 
   const setSorting = (field: keyof RowData) => {
     const reversed = field === sortBy ? !reverseSortDirection : false;
@@ -195,6 +197,8 @@ export default function ContactsTable({ data }: TableSortProps) {
           )}
         </tbody>
       </Table>
+      {/* pagination */}
+    <Pagination position="center" py="md" page={activePage} onChange={setPage}  total={10} />  
     </ScrollArea>
   );
 }

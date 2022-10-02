@@ -25,11 +25,7 @@ export default function NotificationPage() {
       navbar={<NavbarSimpleColored current="Notifications" />}
       header={<HeaderLoggedIn />}
     >
-      <Paper shadow="xs" p="md">
-        <Stack>
-          <NotificationsCard data={dataTable} />
-        </Stack>
-      </Paper>
+      <NotificationsCard data={dataTable} />
     </AppShell>
   );
 }

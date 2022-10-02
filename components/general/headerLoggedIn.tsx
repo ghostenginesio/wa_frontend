@@ -3,13 +3,23 @@ import {
   Header,
   Group,
   Button,
+  Stack,
   Box,
+  HoverCard,
   Burger,
-  Drawer
+  Drawer,
+  UnstyledButton,
+  ThemeIcon,
+  Text
 } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
 import { Avatar } from "@mantine/core";
+import {
+  IconCode,
+  IconTool,
+  IconLogout
+} from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -80,21 +90,67 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
+const data = [
+  {
+    icon: IconCode,
+    title: "Documentation",
+    href: ""
+  },
+  {
+    icon: IconTool,
+    title: "Settings",
+    href: "/settings"
+  },
+  {
+    icon: IconLogout,
+    title: "Log out",
+    href: ""
+  }
+];
+
+
 export function HeaderLoggedIn() {
   const [
     drawerOpened,
     { toggle: toggleDrawer, close: closeDrawer }
   ] = useDisclosure(false);
   const { classes } = useStyles();
+  const links = data.map((item) => (
+    <UnstyledButton key={item.title}>
+      <Group noWrap align="flex-start">
+        <ThemeIcon size={34} variant="default" radius="md">
+          <item.icon size={22} />
+        </ThemeIcon>
+        <Text size="sm" weight={500} content="a" href={item.href}>
+          {item.title}
+        </Text>
+      </Group>
+    </UnstyledButton>
+  ));
+
 
   return (
     <Box pb={120}>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
           <MantineLogo size={30} />
-          <Avatar color="cyan" radius="xl">
-            MK
-          </Avatar>
+          <HoverCard
+              position="bottom"
+              radius="md"
+              shadow="md"
+              withinPortal
+            >
+            <HoverCard.Target>
+              <Avatar color="cyan" radius="xl">
+                MK
+              </Avatar>
+            </HoverCard.Target>
+          <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
+          <Stack>
+                  {links}
+          </Stack>
+          </HoverCard.Dropdown>
+          </HoverCard>
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}

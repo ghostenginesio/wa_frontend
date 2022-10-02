@@ -13,7 +13,7 @@ import {
 import { keys } from '@mantine/utils';
 import { IconSelector, IconChevronDown, IconChevronUp, IconSearch } from '@tabler/icons';
 import SimpleModal from "./modal";
-import ParseCSV from "./readCSV";
+
 
 const useStyles = createStyles((theme) => ({
   th: {
@@ -35,6 +35,12 @@ const useStyles = createStyles((theme) => ({
     borderRadius: 21,
   },
 
+  rowSelected: {
+    backgroundColor:
+      theme.colorScheme === 'dark'
+        ? theme.fn.rgba(theme.colors[theme.primaryColor][7], 0.2)
+        : theme.colors[theme.primaryColor][0],
+  },
 }));
 
 interface RowData {
@@ -139,7 +145,7 @@ export default function ContactsTable({ data }: TableSortProps) {
   return (
     <ScrollArea>
       <Group>
-        <SimpleModal name="Upload" color="violet" content={<ParseCSV/>}></SimpleModal>
+        <SimpleModal name="Upload" color="violet"></SimpleModal>
         <SimpleModal name="Delete" color="red"></SimpleModal>
         <SimpleModal name="Action" color="green"></SimpleModal>
       </Group>
